@@ -1,14 +1,7 @@
 import { useState } from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
-
-import { Trash } from '../components/icons/Trash';
+import { View, StyleSheet, Text, TextInput, Platform } from 'react-native';
+import { Button } from '../components/Button';
+import { TaskCard } from '../components/TaskCard';
 
 export function Home() {
   const [newTask, setNewTask] = useState('');
@@ -29,19 +22,12 @@ export function Home() {
         onChangeText={setNewTask}
       />
 
-      <TouchableOpacity style={styles.button} onPress={handleAddNewTask}>
-        <Text style={styles.buttonText}>Add</Text>
-      </TouchableOpacity>
+      <Button action={handleAddNewTask} />
 
       <Text style={[styles.title, { marginVertical: 50 }]}>My Tasks</Text>
 
       {myTasks.map((task) => (
-        <TouchableOpacity style={styles.buttonTask} key={task}>
-          <Text style={styles.textTask}>{task}</Text>
-          <TouchableOpacity style={styles.trashButton}>
-            <Trash />
-          </TouchableOpacity>
-        </TouchableOpacity>
+        <TaskCard key={task} task={task} />
       ))}
     </View>
   );
@@ -66,37 +52,5 @@ const styles = StyleSheet.create({
     padding: Platform === 'ios' ? 15 : 10,
     marginTop: 30,
     borderRadius: 7,
-  },
-  button: {
-    backgroundColor: '#A370F7',
-    padding: 15,
-    borderRadius: 7,
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  buttonText: {
-    color: '#FFF',
-    fontSize: 17,
-    fontWeight: 'bold',
-  },
-  buttonTask: {
-    backgroundColor: '#3a3b44',
-    padding: 15,
-    borderRadius: 50,
-    marginVertical: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  textTask: {
-    color: '#FFF',
-    fontSize: 22,
-    fontWeight: 'bold',
-    borderRadius: 20,
-  },
-  trashButton: {
-    backgroundColor: '#6a6b7a',
-    padding: 10,
-    borderRadius: 30,
   },
 });
