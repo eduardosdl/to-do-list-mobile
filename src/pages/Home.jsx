@@ -8,7 +8,20 @@ export function Home() {
   const [myTasks, setMyTasks] = useState([]);
 
   function handleAddNewTask() {
-    setMyTasks((prevState) => [...prevState, newTask]);
+    setMyTasks((prevState) => [
+      ...prevState,
+      { check: false, content: newTask },
+    ]);
+  }
+
+  function handleToggleCheckTask(content) {
+    setMyTasks((prevState) => {
+      const updatedTasks = prevState.map((task) => (
+        task.content === content ? { ...task, check: !task.check } : task
+      ));
+
+      return updatedTasks;
+    });
   }
 
   return (
@@ -27,7 +40,11 @@ export function Home() {
       <Text style={[styles.title, { marginVertical: 50 }]}>My Tasks</Text>
 
       {myTasks.map((task) => (
-        <TaskCard key={task} task={task} />
+        <TaskCard
+          key={task.content}
+          check={handleToggleCheckTask}
+          task={task}
+        />
       ))}
     </View>
   );
