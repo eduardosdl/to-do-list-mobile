@@ -3,11 +3,24 @@ import PropTypes from 'prop-types';
 
 import { Trash } from './icons/Trash';
 
-export function TaskCard({ task }) {
+export function TaskCard({ check, deleteAction, task }) {
   return (
-    <TouchableOpacity style={styles.buttonTask}>
-      <Text style={styles.textTask}>{task}</Text>
-      <TouchableOpacity style={styles.trashButton}>
+    <TouchableOpacity
+      style={styles.buttonTask}
+      onPress={() => check(task.content)}
+    >
+      <Text
+        style={[
+          styles.textTask,
+          { textDecorationLine: task.check ? 'line-through' : 'none' },
+        ]}
+      >
+        {task.content}
+      </Text>
+      <TouchableOpacity
+        style={styles.trashButton}
+        onPress={() => deleteAction(task.content)}
+      >
         <Trash />
       </TouchableOpacity>
     </TouchableOpacity>
@@ -38,5 +51,7 @@ const styles = StyleSheet.create({
 });
 
 TaskCard.propTypes = {
-  task: PropTypes.string.isRequired,
+  check: PropTypes.func.isRequired,
+  deleteAction: PropTypes.func.isRequired,
+  task: PropTypes.object.isRequired,
 };
