@@ -22,12 +22,15 @@ export function Home() {
 
       return updatedTasks;
     });
+<<<<<<< HEAD
   }
 
   function handleDeleteTask(content) {
     setMyTasks((prevState) => (
       prevState.filter((task) => task.content !== content)
     ));
+=======
+>>>>>>> refs/remotes/origin/main
   }
 
   return (
@@ -49,7 +52,10 @@ export function Home() {
         <TaskCard
           key={task.content}
           check={handleToggleCheckTask}
+<<<<<<< HEAD
           deleteAction={handleDeleteTask}
+=======
+>>>>>>> refs/remotes/origin/main
           task={task}
         />
       ))}
