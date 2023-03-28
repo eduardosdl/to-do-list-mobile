@@ -16,21 +16,18 @@ export function Home() {
 
   function handleToggleCheckTask(content) {
     setMyTasks((prevState) => {
-      const updatedTasks = prevState.map((task) => (
+      const updatedTasks = prevState.map((task) =>
         task.content === content ? { ...task, check: !task.check } : task
-      ));
+      );
 
       return updatedTasks;
     });
-<<<<<<< HEAD
   }
 
   function handleDeleteTask(content) {
-    setMyTasks((prevState) => (
+    setMyTasks((prevState) =>
       prevState.filter((task) => task.content !== content)
-    ));
-=======
->>>>>>> refs/remotes/origin/main
+    );
   }
 
   return (
@@ -52,10 +49,7 @@ export function Home() {
         <TaskCard
           key={task.content}
           check={handleToggleCheckTask}
-<<<<<<< HEAD
           deleteAction={handleDeleteTask}
-=======
->>>>>>> refs/remotes/origin/main
           task={task}
         />
       ))}

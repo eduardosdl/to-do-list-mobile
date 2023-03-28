@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Trash } from './icons/Trash';
 
-<<<<<<< HEAD
 export function TaskCard({ check, deleteAction, task }) {
-=======
-export function TaskCard({ check, task }) {
->>>>>>> refs/remotes/origin/main
   return (
     <TouchableOpacity
       style={styles.buttonTask}
@@ -21,14 +17,10 @@ export function TaskCard({ check, task }) {
       >
         {task.content}
       </Text>
-<<<<<<< HEAD
       <TouchableOpacity
         style={styles.trashButton}
         onPress={() => deleteAction(task.content)}
       >
-=======
-      <TouchableOpacity style={styles.trashButton}>
->>>>>>> refs/remotes/origin/main
         <Trash />
       </TouchableOpacity>
     </TouchableOpacity>
@@ -60,9 +52,6 @@ const styles = StyleSheet.create({
 
 TaskCard.propTypes = {
   check: PropTypes.func.isRequired,
-<<<<<<< HEAD
   deleteAction: PropTypes.func.isRequired,
-=======
->>>>>>> refs/remotes/origin/main
   task: PropTypes.object.isRequired,
 };
