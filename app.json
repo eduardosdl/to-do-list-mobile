@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "to_do_app",
-    "slug": "to_do_app",
+    "name": "task list",
+    "slug": "to_do_list",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.edu_sdl.to_do_list"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f87bfc71-da6b-416e-b03b-668d6f82824f"
+      }
     }
   }
 }
