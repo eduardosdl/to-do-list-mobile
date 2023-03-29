@@ -1,6 +1,6 @@
 # To Do App
 
-## App to manage tasks
+### App to manage tasks
 
 ## Use
 - Execute comands
