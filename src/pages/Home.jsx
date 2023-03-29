@@ -1,5 +1,12 @@
 import { useState } from 'react';
-import { View, StyleSheet, Text, TextInput, Platform } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  Platform,
+  FlatList,
+} from 'react-native';
 import { Button } from '../components/Button';
 import { TaskCard } from '../components/TaskCard';
 
@@ -45,14 +52,18 @@ export function Home() {
 
       <Text style={[styles.title, { marginVertical: 50 }]}>My Tasks</Text>
 
-      {myTasks.map((task) => (
-        <TaskCard
-          key={task.content}
-          check={handleToggleCheckTask}
-          deleteAction={handleDeleteTask}
-          task={task}
-        />
-      ))}
+      <FlatList
+        data={myTasks}
+        keyExtractor={(item) => item.content}
+        renderItem={({ item }) => (
+          <TaskCard
+            key={item.content}
+            check={handleToggleCheckTask}
+            deleteAction={handleDeleteTask}
+            task={item}
+          />
+        )}
+      />
     </View>
   );
 }
