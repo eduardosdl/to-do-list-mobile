@@ -30,7 +30,8 @@ export function TaskCard({ check, deleteAction, task }) {
 const styles = StyleSheet.create({
   buttonTask: {
     backgroundColor: '#3a3b44',
-    padding: 15,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
     borderRadius: 50,
     marginVertical: 10,
     flexDirection: 'row',
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
   },
   trashButton: {
     backgroundColor: '#6a6b7a',
-    padding: 10,
+    padding: 5,
     borderRadius: 30,
   },
 });

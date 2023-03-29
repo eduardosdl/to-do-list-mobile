@@ -50,7 +50,7 @@ export function Home() {
 
       <Button action={handleAddNewTask} />
 
-      <Text style={[styles.title, { marginVertical: 50 }]}>My Tasks</Text>
+      <Text style={[styles.title, { marginVertical: 30 }]}>My Tasks</Text>
 
       <FlatList
         data={myTasks}
@@ -70,10 +70,12 @@ export function Home() {
 
 const styles = StyleSheet.create({
   container: {
+    height: '100%',
     flex: 1,
     backgroundColor: '#121015',
     paddingHorizontal: 30,
-    paddingVertical: 70,
+    paddingTop: 50,
+    paddingBottom: 20,
   },
   title: {
     color: '#fff',
